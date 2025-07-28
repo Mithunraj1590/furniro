@@ -33,7 +33,12 @@ const Returns = () => {
         <meta name="description" content="Learn about Ecom Store's returns policy and how to return your items." />
         <link rel="canonical" href="/returns" />
       </Helmet>
-      <div className={styles.returnsPage}>
+      <motion.div
+        className={styles.returnsPage}
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
         <Breadcrumb />
         
         <motion.section 
@@ -228,7 +233,7 @@ const Returns = () => {
             </motion.div>
           </div>
         </section>
-      </div>
+      </motion.div>
     </>
   );
 };

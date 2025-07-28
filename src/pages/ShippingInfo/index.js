@@ -33,7 +33,12 @@ const ShippingInfo = () => {
         <meta name="description" content="Find out about shipping options, delivery times, and costs at Ecom Store." />
         <link rel="canonical" href="/shipping-info" />
       </Helmet>
-      <div className={styles.shippingInfoPage}>
+      <motion.div
+        className={styles.shippingInfoPage}
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
         <Breadcrumb />
         
         <motion.section 
@@ -176,7 +181,7 @@ const ShippingInfo = () => {
             </motion.div>
           </div>
         </section>
-      </div>
+      </motion.div>
     </>
   );
 };

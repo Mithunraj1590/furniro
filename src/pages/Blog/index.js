@@ -264,7 +264,7 @@ const Blog = () => {
                             </button>
                           </li>
                           {Array.from({ length: totalPages }, (_, i) => (
-                            <li key={i + 1} className={currentPage === i + 1 ? styles.active : ''}>
+                            <li key={`page-${i + 1}`} className={currentPage === i + 1 ? styles.active : ''}>
                               <button
                                 onClick={() => handlePageChange(i + 1)}
                                 aria-current={currentPage === i + 1 ? 'page' : undefined}
