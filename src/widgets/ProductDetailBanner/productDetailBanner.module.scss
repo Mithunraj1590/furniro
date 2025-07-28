@@ -1,0 +1,539 @@
+@import '../../styles/mixins';
+
+.productDetailBanner {
+  background: var(--color-bg);
+  padding: 3rem 0;
+  min-height: 60vh;
+}
+
+.bannerContent {
+  display: grid;
+  gap: 4rem;
+  align-items: start;
+
+  @include min(992) {
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+  }
+}
+
+// Left Side - Image Section
+.imageSection {
+  display: grid;
+  gap: 2rem;
+  align-items: start;
+
+  @include min(992) {
+    grid-template-columns: auto 1fr;
+    gap: 3rem;
+  }
+}
+
+.thumbnailColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  order: 2;
+
+  @include min(992) {
+    order: 1;
+    gap: 1.5rem;
+  }
+}
+
+.thumbnail {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  background: #f8f9fa;
+
+  &:hover {
+    border-color: var(--color-primary);
+    transform: scale(1.05);
+  }
+
+  &.active {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px rgba(184, 142, 47, 0.2);
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @include min(768) {
+    width: 100px;
+    height: 100px;
+  }
+
+  @include min(992) {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+.mainImageContainer {
+  order: 1;
+  width: 100%;
+
+  @include min(992) {
+    order: 2;
+  }
+}
+
+.mainImage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #f8f9fa;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover img {
+    transform: scale(1.02);
+  }
+}
+
+.badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: white;
+  z-index: 2;
+
+  &.discount {
+    background: #dc3545;
+  }
+
+  &.new {
+    background: #28a745;
+  }
+}
+
+// Right Side - Product Info Section
+.productInfoSection {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.productName {
+ 
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0;
+  line-height: 1.2;
+
+  @include min(768) {
+   
+  }
+}
+
+.productPrice {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.currentPrice {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-primary);
+
+  @include min(768) {
+    font-size: 2.5rem;
+  }
+}
+
+.originalPrice {
+  font-size: 1.2rem;
+  color: #999;
+  text-decoration: line-through;
+  font-weight: 500;
+}
+
+.productRating {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.stars {
+  display: flex;
+  gap: 0.25rem;
+  color: #ffc107;
+
+  i {
+    font-size: 1.1rem;
+  }
+}
+
+.ratingText {
+  font-size: 1rem;
+  color: #666;
+  font-weight: 500;
+}
+
+.productDetail {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #666;
+  margin: 0;
+}
+
+.selectionGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.selectionLabel {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.sizeOptions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.sizeOption {
+  padding: 0.75rem 1.5rem;
+  border: 2px solid #e5e5e5;
+  background: white;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-text);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 60px;
+  text-align: center;
+
+  &:hover {
+    border-color: var(--color-primary);
+  }
+
+  &.selected {
+    border-color: var(--color-primary);
+    background: var(--color-primary);
+    color: white;
+  }
+}
+
+.colorOptions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.colorOption {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #e5e5e5;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  &:hover {
+    border-color: var(--color-primary);
+    transform: scale(1.1);
+  }
+
+  &.selected {
+    border-color: var(--color-primary);
+    transform: scale(1.1);
+
+    i {
+      color: white;
+      font-size: 0.8rem;
+      font-weight: bold;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    }
+  }
+}
+
+.quantitySelector {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.quantitySelector label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.quantityControls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 2px solid #e5e5e5;
+  border-radius: 8px;
+  padding: 0.5rem;
+  width: fit-content;
+}
+
+.quantityBtn {
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: #f8f9fa;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.2s;
+
+  &:hover:not(:disabled) {
+    background: var(--color-primary);
+    color: white;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.quantityValue {
+  min-width: 50px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--color-text);
+}
+
+.actionButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  @include min(768) {
+    flex-direction: row;
+  }
+
+  .btn {
+    flex: 1;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+}
+
+// Product Information Section
+.productInfoSection {
+  padding: 2rem 0;
+  border-top: 1px solid #e5e5e5;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.infoItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+}
+
+.infoLabel {
+  font-size: 0.9rem;
+  color: #666;
+  font-weight: 500;
+}
+
+.infoValue {
+  font-size: 0.9rem;
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.shareSection {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-top: 1px solid #e5e5e5;
+}
+
+.shareLabel {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.shareButtons {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.shareBtn {
+  width: 40px;
+  height: 40px;
+  border: 2px solid #e5e5e5;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #666;
+
+  &:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    transform: scale(1.1);
+  }
+
+  i {
+    font-size: 1rem;
+  }
+}
+
+// Mobile responsive adjustments
+@include max(767) {
+  .productDetailBanner {
+    padding: 2rem 0;
+  }
+
+  .bannerContent {
+    gap: 2rem;
+  }
+
+  .imageSection {
+    gap: 1rem;
+  }
+
+  .thumbnailColumn {
+    flex-direction: row;
+    overflow-x: auto;
+    gap: 0.75rem;
+    padding-bottom: 0.5rem;
+
+    &::-webkit-scrollbar {
+      height: 4px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 2px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #c1c1c1;
+      border-radius: 2px;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background: #a8a8a8;
+    }
+  }
+
+  .thumbnail {
+    flex-shrink: 0;
+    width: 70px;
+    height: 70px;
+  }
+
+  .productName {
+    font-size: 2rem;
+  }
+
+  .currentPrice {
+    font-size: 1.5rem;
+  }
+
+  .actionButtons {
+    .btn {
+      padding: 0.75rem 1.5rem;
+      font-size: 0.9rem;
+    }
+  }
+}
+
+// Dark mode support
+[data-theme='dark'] {
+  .productDetailBanner {
+    background: var(--color-bg);
+  }
+
+  .thumbnail {
+    background: var(--color-bg-secondary);
+  }
+
+  .mainImage {
+    background: var(--color-bg-secondary);
+  }
+
+  .sizeOption {
+    background: var(--color-bg-secondary);
+    border-color: var(--color-border);
+    color: var(--color-text);
+
+    &:hover {
+      border-color: var(--color-primary);
+    }
+  }
+
+  .quantityControls {
+    border-color: var(--color-border);
+  }
+
+  .quantityBtn {
+    background: var(--color-bg-secondary);
+    color: var(--color-text);
+
+    &:hover:not(:disabled) {
+      background: var(--color-primary);
+      color: white;
+    }
+  }
+
+  .productInfoSection,
+  .shareSection {
+    border-color: var(--color-border);
+  }
+
+  .shareBtn {
+    background: var(--color-bg-secondary);
+    border-color: var(--color-border);
+    color: var(--color-text);
+
+    &:hover {
+      border-color: var(--color-primary);
+      color: var(--color-primary);
+    }
+  }
+} 

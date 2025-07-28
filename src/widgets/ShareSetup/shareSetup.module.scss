@@ -1,0 +1,312 @@
+@import '../../styles/mixins';
+
+.shareSetup {
+    padding: 60px 0;
+    background: var(--color-bg);
+    color: var(--color-text);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    width: 100%;
+
+    @include min(768) {
+        padding: 80px 0;
+    }
+
+    @include min(1200) {
+        padding: 100px 0;
+    }
+}
+
+.headerContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    margin-bottom: 3rem;
+
+    @include min(768) {
+        margin-bottom: 4rem;
+    }
+
+    @include min(1200) {
+        margin-bottom: 5rem;
+    }
+}
+
+.header {
+    text-align: center;
+
+    padding: 2rem;
+    border-radius: 12px;
+
+    @include min(768) {
+       
+    }
+
+    @include min(1200) {
+        
+    }
+}
+
+.title {
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+    font-weight: 400;
+    // font-size: 1.2rem;
+
+    @include min(768) {
+        // font-size: 1.4rem;
+    }
+
+    @include min(1200) {
+        // font-size: 1.6rem;
+    }
+}
+
+.hashtag {
+    color: var(--color-text);
+    font-weight: 700;
+    // font-size: 2rem;
+    margin: 0;
+
+    @include min(768) {
+        // font-size: 2.5rem;
+    }
+
+    @include min(1200) {
+        // font-size: 3rem;
+    }
+}
+
+.gridContainer {
+    position: relative;
+    width: 100%;
+    padding: 0;
+    padding: 0 15px;
+    @include min(992){
+        padding: 0;
+    }
+}
+
+.bentoGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto auto auto auto auto auto;
+    gap: 0.5rem;
+    width: 100%;
+    // max-width: 1400px;
+    margin: 0 auto;
+
+    @include min(768) {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        gap: 1rem;
+        height: 600px;
+    }
+
+    @include min(1200) {
+        height: 700px;
+        gap: 1.5rem;
+    }
+
+    @include min(1400) {
+        height: 800px;
+        gap: 2rem;
+    }
+}
+
+.bentoItem {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+
+    &:hover {
+        transform: scale(1.02);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
+}
+
+.imageContainer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #f8f8f8;
+}
+
+.setupImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+
+    .gridItem:hover & {
+        transform: scale(1.05);
+    }
+}
+
+.imageOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.3) 50%,
+        rgba(0, 0, 0, 0.7) 100%
+    );
+    display: flex;
+    align-items: flex-end;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+
+    .gridItem:hover & {
+        opacity: 1;
+    }
+}
+
+.overlayContent {
+    padding: 1rem;
+    color: white;
+    width: 100%;
+
+    @include min(768) {
+        padding: 1.25rem;
+    }
+
+    @include min(1200) {
+        padding: 1.5rem;
+    }
+}
+
+.category {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.25rem;
+    opacity: 0.9;
+
+    @include min(768) {
+        font-size: 0.875rem;
+        margin-bottom: 0.5rem;
+    }
+}
+
+.setupTitle {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0;
+    line-height: 1.3;
+
+    @include min(768) {
+        font-size: 1.125rem;
+    }
+
+    @include min(1200) {
+        font-size: 1.25rem;
+    }
+}
+
+// Bento Grid Layout - Exact positioning with different sizes from the new 9-image design
+.item1 {
+    // Top-left photo (Vertical) - Bright minimalist room - Tall vertical
+    grid-area: 1 / 1 / 2 / 2;
+    
+    @include min(768) {
+        grid-area: 1 / 1 / 2 / 2; // Spans 2 rows for tall vertical
+    }
+}
+
+.item2 {
+    // Top-middle photo (Horizontal) - White desk - Wide horizontal
+    grid-area: 2 / 1 / 3 / 2;
+    
+    @include min(768) {
+        grid-area: 1 / 2 / 2 / 4; // Spans 2 columns for wide horizontal
+    }
+}
+
+.item3 {
+    // Top-right photo (Vertical) - Sunlit dining area - Tall vertical
+    grid-area: 3 / 1 / 4 / 2;
+    
+    @include min(768) {
+        grid-area: 1 / 4 / 3 / 5; // Spans 2 rows for tall vertical
+    }
+}
+
+.item4 {
+    // Middle-left photo (Vertical) - Modern dining room - Medium vertical
+    grid-area: 4 / 1 / 5 / 2;
+    
+    @include min(768) {
+        grid-area: 2 / 1 / 3 / 2; // Standard size - This should be visible
+    }
+}
+
+.item5 {
+    // Middle-right photo (Vertical) - Luxury bedroom - Medium vertical
+    grid-area: 5 / 1 / 6 / 2;
+    
+    @include min(768) {
+        grid-area: 2 / 2 / 3 / 3; // Standard size
+    }
+}
+
+.item6 {
+    // Bottom-left photo (Horizontal) - Simple bedroom - Wide horizontal
+    grid-area: 6 / 1 / 7 / 2;
+    
+    @include min(768) {
+        grid-area: 3 / 1 / 4 / 3; // Spans 2 columns for wide horizontal
+    }
+}
+
+.item7 {
+    // Bottom-middle photo (Horizontal) - Vase & Camera - Small square
+    grid-area: 7 / 1 / 8 / 2;
+    
+    @include min(768) {
+        grid-area: 3 / 3 / 4 / 4; // Small square
+    }
+}
+
+.item8 {
+    // Bottom-right-left photo (Vertical) - Framed picture and vase - Medium vertical
+    grid-area: 8 / 1 / 9 / 2;
+    
+    @include min(768) {
+        grid-area: 2 / 3 / 3 / 4; // Standard size
+    }
+}
+
+.item9 {
+    // Bottom-right-right photo (Vertical) - Kitchen wall - Medium vertical
+    grid-area: 9 / 1 / 10 / 2;
+    
+    @include min(768) {
+        grid-area: 3 / 4 / 4 / 5; // Standard size
+    }
+}
+
+// Dark mode support
+[data-theme='dark'] {
+    .header {
+        background: #1a1a1a;
+    }
+    
+    .title {
+        color: #b0b0b0;
+    }
+    
+    .hashtag {
+        color: #ffffff;
+    }
+    
+    .imageContainer {
+        background: #2a2a2a;
+    }
+} 

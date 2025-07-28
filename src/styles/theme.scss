@@ -1,0 +1,21 @@
+// Theme variables for light and dark mode
+:root {
+  --color-bg: #ffffff;
+  --color-text: #222222;
+  --color-link: #007bff;
+  --color-link-hover: #0056b3;
+  --color-secondary: #6c757d;
+  --color-secondary-hover: #565e64;
+  --color-primary: #B88E2F;
+  --color-primary-hover:#B88E2F;
+}
+
+[data-theme='dark'] {
+  --color-bg: #181a1b;
+  --color-text: #f5f6fa;
+  --color-link: #61dafb;
+  --color-link-hover: #1a8cd8;
+  --color-secondary: #444950;
+  --color-secondary-hover: #30343a;
+  --color-primary: #FFD700;
+} 

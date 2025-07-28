@@ -1,0 +1,171 @@
+@import '../../styles/mixins';
+
+.shopBanner {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background: var(--color-bg);
+    transition: background-color 0.3s ease;
+
+    @include min(480) {
+        height: 250px;
+    }
+
+    @include min(768) {
+        height: 400px;
+    }
+
+    @include min(1200) {
+        height: 500px;
+    }
+}
+
+.bannerContainer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.backgroundImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.blurredBackground {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.1) 0%,
+        rgba(255, 255, 255, 0.05) 100%
+    ),
+    url('https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=1200&h=600&fit=crop') center/cover;
+    filter: blur(8px);
+    transform: scale(1.1);
+    opacity: 0.7;
+}
+
+.content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: #2C2C2C;
+    padding: 1.5rem 2rem;
+    border-radius: 12px;
+
+    @include min(480) {
+        padding: 2rem 3rem;
+    }
+
+    @include min(768) {
+        padding: 3rem 4rem;
+    }
+
+    @include min(1200) {
+        padding: 4rem 5rem;
+    }
+}
+
+.mainTitle {
+    color: #2C2C2C;
+    margin: 0;
+    line-height: 1.1;
+    font-weight: 500;
+    margin-bottom: 10px;
+    font-size: 2rem;
+
+    @include min(480) {
+        font-size: 2.5rem;
+        margin-bottom: 12px;
+    }
+
+    @include min(768) {
+        font-size: 3rem;
+        margin-bottom: 15px;
+    }
+
+    @include min(1200) {
+        font-size: 4rem;
+        margin-bottom: 20px;
+    }
+}
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--color-text);
+    flex-wrap: wrap;
+
+    @include min(480) {
+        font-size: 1rem;
+    }
+
+    @include min(768) {
+        font-size: 1.125rem;
+    }
+
+    @include min(1200) {
+        font-size: 1.25rem;
+    }
+}
+
+.breadcrumbLink {
+    color: var(--color-text);
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+    &:hover {
+        color: var(--color-primary);
+    }
+}
+
+.breadcrumbSeparator {
+    color: #000;
+}
+
+.currentPage {
+    color: var(--color-primary);
+    font-weight: 500;
+}
+
+// Dark mode support
+[data-theme='dark'] {
+    .shopBanner {
+        background: var(--color-bg);
+    }
+
+    .mainTitle {
+        color: var(--color-text);
+    }
+
+    .breadcrumb {
+        color: var(--color-text);
+    }
+
+    .breadcrumbLink {
+        color: var(--color-text);
+
+        &:hover {
+            color: var(--color-primary);
+        }
+    }
+
+    .breadcrumbSeparator {
+        color: rgba(255, 255, 255, 0.6);
+    }
+
+    .currentPage {
+        color: var(--color-primary);
+    }
+} 

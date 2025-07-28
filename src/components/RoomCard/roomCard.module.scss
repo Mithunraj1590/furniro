@@ -1,0 +1,144 @@
+@import '../../styles/mixins';
+
+.roomCard {
+  position: relative;
+  border-radius: size(8);
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: scale(0.7);
+  will-change: transform;
+  opacity: 0.6;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  box-shadow: 0 size(4) size(15) rgba(0, 0, 0, 0.1);
+  
+  &:hover {
+    transform: scale(0.8);
+    opacity: 0.8;
+    box-shadow: 0 size(15) size(40) rgba(0, 0, 0, 0.15);
+    
+    .roomImage {
+      transform: scale(1.05);
+    }
+  }
+}
+
+// Use Swiper's built-in active class
+:global(.swiper-slide-active) .roomCard {
+  transform: scale(1);
+  opacity: 1;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  
+  .overlay {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+:global(.swiper-slide-active) .roomCard:hover {
+  transform: scale(1.05);
+  opacity: 1;
+}
+
+.imageContainer {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 100%;
+  height: 100%;
+}
+
+.roomImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: size(20) size(15);
+  backdrop-filter: blur(10px);
+  width: 70%;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.overlayContent {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: size(15);
+}
+
+.textContent {
+  flex: 1;
+}
+
+.category {
+  display: block;
+  font-size: size(12);
+  color: rgba(0, 0, 0, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 500;
+  margin-bottom: size(10);
+}
+
+.roomTitle {
+  @include heading(size(18), 600, 0);
+  color: var(--color-text);
+  line-height: 1.2;
+  margin: 0;
+  
+  @include min(768) {
+    @include heading(size(22), 600, 0);
+  }
+}
+
+.navButton {
+  background: var(--color-primary);
+  border: none;
+  color: white;
+  width: size(35);
+  height: size(35);
+  border-radius: size(6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  
+  i {
+    font-size: size(14);
+  }
+  
+  &:hover {
+    background: var(--color-primary);
+    transform: scale(1.1);
+  }
+}
+
+// Dark mode support
+[data-theme='dark'] {
+  .overlay {
+    background: rgba(0, 0, 0, 0.8);
+  }
+  
+  .category {
+    color: rgba(255, 255, 255, 0.6);
+  }
+  
+  .roomTitle {
+    color: white;
+  }
+} 

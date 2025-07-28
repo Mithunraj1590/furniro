@@ -1,0 +1,376 @@
+@import '../../styles/mixins';
+
+.footer {
+  background: var(--color-bg);
+  color: var(--color-text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  padding: 3rem 0 1rem;
+  border-top: 1px solid rgba($color: #000000, $alpha: .2);
+  
+  @include min(768) {
+    padding: 4rem 0 2rem;
+  }
+  
+  @include min(1200) {
+    padding: 5rem 0 2rem;
+  }
+}
+
+.footerContent {
+  margin-bottom: 3rem;
+  
+  @include min(768) {
+    margin-bottom: 4rem;
+  }
+}
+
+.companyInfo {
+  margin-bottom: 2rem;
+
+  
+  @include min(768) {
+    margin-bottom: 0;
+    padding-right: 20px;
+  }
+}
+
+.brandName {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0 0 1rem 0;
+  
+  @include min(768) {
+    font-size: 2.25rem;
+  }
+}
+
+.companyDescription {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(0, 0, 0, 0.7);
+  margin: 0 0 2rem 0;
+  
+  @include min(768) {
+    font-size: 1.1rem;
+  }
+}
+
+.address {
+  font-style: normal;
+  margin: 0;
+}
+
+.addressItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+  
+  i {
+    font-size: 1.2rem;
+    color: var(--color-primary);
+    margin-top: 0.2rem;
+    flex-shrink: 0;
+  }
+  
+  div {
+    flex: 1;
+    
+    strong {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--color-text);
+      margin-bottom: 0.25rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    p {
+      margin: 0;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: rgba(0, 0, 0, 0.7);
+    }
+  }
+}
+
+.footerSection {
+  margin-bottom: 2rem;
+  
+  @include min(768) {
+    margin-bottom: 0;
+  }
+}
+
+.sectionTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0 0 1.5rem 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  
+  @include min(768) {
+    font-size: 1.2rem;
+  }
+}
+
+.linkList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footerLink {
+  display: block;
+  color: rgba(0, 0, 0, 0.7);
+  text-decoration: none;
+  padding: 0.5rem 0;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    color: var(--color-primary);
+    transform: translateX(5px);
+  }
+  &.active{
+    color: var(--color-primary);
+  }
+  
+  @include min(768) {
+    font-size: 1rem;
+  }
+}
+
+.socialLinks {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 50%;
+  color: var(--color-text);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background: var(--color-primary);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(184, 142, 47, 0.3);
+  }
+  
+  i {
+    font-size: 1.1rem;
+  }
+}
+
+.paymentMethods {
+  h5 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin: 0 0 1rem 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+}
+
+.paymentIcons {
+  display: flex;
+  gap: 0.75rem;
+  
+  i {
+    font-size: 1.5rem;
+    color: rgba(0, 0, 0, 0.4);
+    transition: color 0.3s ease;
+    
+    &:hover {
+      color: var(--color-primary);
+    }
+  }
+}
+
+.copyright {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding-top: 2rem;
+  
+  @include min(768) {
+    padding-top: 2.5rem;
+  }
+}
+
+.copyrightContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  
+  @include min(768) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.copyrightLeft {
+  p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: rgba(0, 0, 0, 0.6);
+  }
+}
+
+.copyrightRight {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  
+  @include max(767) {
+    gap: 1rem;
+  }
+}
+
+.copyrightLink {
+  color: rgba(0, 0, 0, 0.6);
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: color 0.3s ease;
+  
+  &:hover {
+    color: var(--color-primary);
+  }
+}
+
+// Dark mode support
+[data-theme='dark'] {
+  .companyDescription {
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  .addressItem {
+    div {
+      strong {
+        color: var(--color-text);
+      }
+      
+      p {
+        color: rgba(255, 255, 255, 0.7);
+      }
+    }
+  }
+  
+  .footerLink {
+    color: rgba(255, 255, 255, 0.7);
+    &.active{
+      color: var(--color-primary);
+    }
+  }
+  
+  .socialLink {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--color-text);
+  }
+  
+  .paymentIcons {
+    i {
+      color: rgba(255, 255, 255, 0.4);
+    }
+  }
+  
+  .copyright {
+    border-top-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .copyrightLeft p,
+  .copyrightLink {
+    color: rgba(255, 255, 255, 0.6);
+  }
+}
+
+// Responsive improvements
+@include max(767) {
+  .brandName {
+    font-size: 1.75rem;
+  }
+  
+  .companyDescription {
+    font-size: 0.9rem;
+  }
+  
+  .addressItem {
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+    
+    i {
+      font-size: 1.1rem;
+    }
+    
+    div {
+      strong {
+        font-size: 0.8rem;
+      }
+      
+      p {
+        font-size: 0.85rem;
+      }
+    }
+  }
+  
+  .sectionTitle {
+    font-size: 1rem;
+    margin-bottom: 1.25rem;
+  }
+  
+  .footerLink {
+    font-size: 0.9rem;
+    padding: 0.4rem 0;
+  }
+  
+  .socialLinks {
+    gap: 0.75rem;
+  }
+  
+  .socialLink {
+    width: 36px;
+    height: 36px;
+    
+    i {
+      font-size: 1rem;
+    }
+  }
+  
+  .paymentIcons {
+    gap: 0.5rem;
+    
+    i {
+      font-size: 1.25rem;
+    }
+  }
+  
+  .copyrightContent {
+    gap: 0.75rem;
+  }
+  
+  .copyrightRight {
+    gap: 0.75rem;
+  }
+  
+  .copyrightLink {
+    font-size: 0.8rem;
+  }
+} 

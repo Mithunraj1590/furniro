@@ -1,0 +1,364 @@
+@import '../../styles/mixins';
+
+.productDetails {
+  background: var(--color-bg);
+  padding: 4rem 0;
+}
+
+.tabNavigation {
+  display: flex;
+  gap: 0;
+  border-bottom: 2px solid #e5e5e5;
+  margin-bottom: 3rem;
+  justify-content: center;
+
+  @include max(768) {
+    flex-direction: column;
+    gap: 0;
+    justify-content: flex-start;
+  }
+}
+
+.tabButton {
+  padding: 1rem 2rem;
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-bottom: 3px solid transparent;
+  position: relative;
+
+  &:hover {
+    color: var(--color-primary);
+  }
+
+  &.active {
+    color: var(--color-text);
+    border-bottom-color: var(--color-primary);
+  }
+
+  @include max(768) {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #e5e5e5;
+    
+    &.active {
+      border-bottom-color: var(--color-primary);
+      background: rgba(184, 142, 47, 0.05);
+    }
+  }
+}
+
+.tabContent {
+  min-height: 400px;
+}
+
+// Description Tab Styles
+.descriptionContent {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.descriptionText {
+  p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #666;
+    margin-bottom: 1.5rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.productImages {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+
+  @include max(768) {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+.imageContainer {
+  aspect-ratio: 16/10;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #f8f9fa;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover img {
+    transform: scale(1.02);
+  }
+}
+
+// Additional Information Tab Styles
+.additionalInfo {
+  max-width: 600px;
+}
+
+.infoTable {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.infoRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #e5e5e5;
+  background: white;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &:nth-child(even) {
+    background: #f8f9fa;
+  }
+}
+
+.infoLabel {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.infoValue {
+  font-size: 1rem;
+  color: #666;
+  font-weight: 500;
+}
+
+// Reviews Tab Styles
+.reviewsContent {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.reviewForm {
+  background: #f8f9fa;
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid #e5e5e5;
+
+  h3 {
+    margin-bottom: 1.5rem;
+    color: var(--color-text);
+    font-size: 1.3rem;
+    font-weight: 600;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}
+
+.ratingInput {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+
+  label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+}
+
+.starRating {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.starButton {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #ffc107;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0.25rem;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  i {
+    transition: color 0.2s ease;
+  }
+}
+
+.commentInput {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+
+  label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #e5e5e5;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    resize: vertical;
+    transition: border-color 0.2s ease;
+
+    &:focus {
+      outline: none;
+      border-color: var(--color-primary);
+    }
+
+    &::placeholder {
+      color: #999;
+    }
+  }
+}
+
+.reviewsList {
+  h3 {
+    margin-bottom: 2rem;
+    color: var(--color-text);
+    font-size: 1.3rem;
+    font-weight: 600;
+  }
+}
+
+.reviewItem {
+  padding: 1.5rem 0;
+  border-bottom: 1px solid #e5e5e5;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.reviewHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+
+  @include max(768) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
+
+.reviewInfo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.reviewerName {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.reviewStars {
+  display: flex;
+  gap: 0.25rem;
+  color: #ffc107;
+
+  i {
+    font-size: 0.9rem;
+  }
+}
+
+.reviewDate {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.reviewComment {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #666;
+  margin: 0;
+}
+
+// Dark mode support
+[data-theme='dark'] {
+  .productDetails {
+    background: var(--color-bg);
+  }
+
+  .tabNavigation {
+    border-bottom-color: var(--color-border);
+  }
+
+  .tabButton {
+    color: #999;
+
+    &:hover {
+      color: var(--color-primary);
+    }
+
+    &.active {
+      color: var(--color-text);
+    }
+  }
+
+  .infoTable {
+    border-color: var(--color-border);
+  }
+
+  .infoRow {
+    background: var(--color-bg-secondary);
+    border-color: var(--color-border);
+
+    &:nth-child(even) {
+      background: var(--color-bg);
+    }
+  }
+
+  .reviewForm {
+    background: var(--color-bg-secondary);
+    border-color: var(--color-border);
+  }
+
+  .commentInput textarea {
+    background: var(--color-bg);
+    border-color: var(--color-border);
+    color: var(--color-text);
+
+    &:focus {
+      border-color: var(--color-primary);
+    }
+  }
+
+  .reviewItem {
+    border-color: var(--color-border);
+  }
+} 

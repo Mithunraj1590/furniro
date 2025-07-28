@@ -1,0 +1,206 @@
+@import '../../styles/mixins';
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 1rem;
+}
+
+.popup {
+  background: white;
+  border-radius: 1rem;
+  padding: 2rem;
+  max-width: 400px;
+  width: 100%;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  
+  @include min(768) {
+    padding: 2.5rem;
+    max-width: 450px;
+  }
+}
+
+.iconContainer {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  i {
+    font-size: 1.5rem;
+    color: white;
+  }
+  
+  @include min(768) {
+    width: 56px;
+    height: 56px;
+    
+    i {
+      font-size: 1.75rem;
+    }
+  }
+}
+
+.content {
+  flex: 1;
+  min-width: 0;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0 0 0.5rem 0;
+  
+  @include min(768) {
+    font-size: 1.5rem;
+  }
+}
+
+.message {
+  font-size: 1rem;
+  color: rgba(0, 0, 0, 0.7);
+  margin: 0;
+  line-height: 1.5;
+  
+  @include min(768) {
+    font-size: 1.1rem;
+  }
+}
+
+.closeBtn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background: rgba(0, 0, 0, 0.2);
+    color: rgba(0, 0, 0, 0.8);
+  }
+  
+  i {
+    font-size: 1.1rem;
+  }
+}
+
+// Type-specific styles
+.success {
+  border-left: 4px solid #28a745;
+  
+  .iconContainer {
+    background: #28a745;
+  }
+}
+
+.error {
+  border-left: 4px solid #dc3545;
+  
+  .iconContainer {
+    background: #dc3545;
+  }
+}
+
+.warning {
+  border-left: 4px solid #ffc107;
+  
+  .iconContainer {
+    background: #ffc107;
+  }
+}
+
+.info {
+  border-left: 4px solid #17a2b8;
+  
+  .iconContainer {
+    background: #17a2b8;
+  }
+}
+
+// Dark mode support
+[data-theme='dark'] {
+  .popup {
+    background: var(--color-bg);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  }
+  
+  .title {
+    color: var(--color-text);
+  }
+  
+  .message {
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  .closeBtn {
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.6);
+    
+    &:hover {
+      background: rgba(255, 255, 255, 0.2);
+      color: rgba(255, 255, 255, 0.8);
+    }
+  }
+}
+
+// Responsive improvements
+@include max(767) {
+  .overlay {
+    padding: 0.75rem;
+  }
+  
+  .popup {
+    padding: 1.5rem;
+  }
+  
+  .iconContainer {
+    width: 40px;
+    height: 40px;
+    
+    i {
+      font-size: 1.25rem;
+    }
+  }
+  
+  .title {
+    font-size: 1.1rem;
+  }
+  
+  .message {
+    font-size: 0.95rem;
+  }
+  
+  .closeBtn {
+    width: 28px;
+    height: 28px;
+    
+    i {
+      font-size: 1rem;
+    }
+  }
+} 

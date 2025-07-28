@@ -1,0 +1,315 @@
+@import '../../styles/mixins';
+
+.productGrid {
+    padding: 2rem 0;
+    background: var(--color-bg);
+    transition: background-color 0.3s ease;
+
+    @include min(768) {
+        padding: 3rem 0;
+    }
+
+    @include min(1200) {
+        padding: 4rem 0;
+    }
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+
+    @include min(480) {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
+    @include min(576) {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+
+    @include min(768) {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2.5rem;
+        margin-bottom: 3rem;
+    }
+
+    @include min(1200) {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 3rem;
+    }
+
+    &.listView {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+
+        @include min(768) {
+            gap: 1.5rem;
+        }
+
+        .gridItem {
+            :global(.productCard) {
+                display: flex;
+                align-items: center;
+                gap: 2rem;
+
+                @include max(767) {
+                    flex-direction: column;
+                    gap: 1rem;
+                }
+
+                :global(.imageContainer) {
+                    flex-shrink: 0;
+                    width: 200px;
+                    height: 200px;
+
+                    @include max(767) {
+                        width: 100%;
+                        height: 250px;
+                    }
+                }
+
+                :global(.productInfo) {
+                    flex: 1;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    gap: 0.5rem;
+
+                    @include min(768) {
+                        gap: 1rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.gridItem {
+    display: flex;
+    flex-direction: column;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+
+    @include min(768) {
+        margin-top: 3rem;
+    }
+
+    @include min(1200) {
+        margin-top: 4rem;
+    }
+}
+
+.paginationContainer {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--color-bg);
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    padding: 0.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    @include min(768) {
+        gap: 0.75rem;
+        padding: 0.75rem;
+        flex-wrap: nowrap;
+    }
+}
+
+.pageButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 35px;
+    height: 35px;
+    background: white;
+    border: 1px solid #e5e5e5;
+    border-radius: 6px;
+    color: #666666;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0 10px;
+
+    &:hover {
+        background: #f8f8f8;
+        border-color: var(--color-primary);
+        color: var(--color-primary);
+        transform: translateY(-1px);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    &.active {
+        background: var(--color-primary);
+        border-color: var(--color-primary);
+        color: white;
+        box-shadow: 0 2px 8px rgba(184, 142, 47, 0.3);
+
+        &:hover {
+            background: var(--color-primary-hover);
+            border-color: var(--color-primary);
+            color: var(--color-text);
+        }
+    }
+
+    @include min(768) {
+        min-width: 48px;
+        height: 48px;
+        font-size: 1rem;
+    }
+}
+
+.nextButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 60px;
+    height: 40px;
+    background: white;
+    border: 1px solid #e5e5e5;
+    border-radius: 6px;
+    color: #666666;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background: #f8f8f8;
+        border-color: var(--color-primary);
+        color: var(--color-primary);
+        transform: translateY(-1px);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    @include min(768) {
+        min-width: 70px;
+        height: 48px;
+        font-size: 1rem;
+    }
+}
+
+// Empty state
+.emptyState {
+    text-align: center;
+    padding: 2rem 1rem;
+    color: var(--color-text);
+
+    @include min(768) {
+        padding: 3rem 1rem;
+    }
+
+    h3 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+
+        @include min(768) {
+            font-size: 1.5rem;
+        }
+    }
+
+    p {
+        font-size: 0.9rem;
+        color: #666666;
+        margin-bottom: 1.5rem;
+
+        @include min(768) {
+            font-size: 1rem;
+        }
+    }
+}
+
+// Loading state
+.loadingState {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 1rem;
+    color: var(--color-text);
+
+    .spinner {
+        width: 40px;
+        height: 40px;
+        border: 3px solid #f3f3f3;
+        border-top: 3px solid var(--color-primary);
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+    }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+// Dark mode support
+[data-theme='dark'] {
+    .productGrid {
+        background: var(--color-bg);
+    }
+
+    .paginationContainer {
+        background: var(--color-bg);
+        border-color: #333333;
+    }
+
+    .pageButton {
+        background: #2a2a2a;
+        border-color: #333333;
+        color: var(--color-text);
+
+        &:hover {
+            background: #333333;
+            border-color: var(--color-primary);
+            color: var(--color-primary);
+        }
+
+        &.active {
+            background: var(--color-primary);
+            border-color: var(--color-primary);
+            color: white;
+        }
+    }
+
+    .nextButton {
+        background: #2a2a2a;
+        border-color: #333333;
+        color: var(--color-text);
+
+        &:hover {
+            background: #333333;
+            border-color: var(--color-primary);
+            color: var(--color-primary);
+        }
+    }
+
+    .emptyState {
+        color: var(--color-text);
+
+        p {
+            color: rgba(255, 255, 255, 0.7);
+        }
+    }
+
+    .loadingState {
+        color: var(--color-text);
+
+        .spinner {
+            border-color: #333333;
+            border-top-color: var(--color-primary);
+        }
+    }
+} 

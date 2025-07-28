@@ -1,0 +1,14 @@
+@import '../../styles/mixins';
+
+.productDetailPage {
+  background: var(--color-bg);
+  min-height: 60vh;
+}
+
+.loadingContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+  background: var(--color-bg);
+} 

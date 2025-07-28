@@ -1,0 +1,236 @@
+@import "./mixins";
+
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1600px,
+);
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1533px,
+);
+
+$btn-padding-y: size(10);
+
+
+// Bootstrap scss-docs-start import-stack
+@import "~bootstrap/scss/mixins/banner";
+@include bsBanner("");
+// Configuration
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/maps";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/utilities";
+
+// Layout & components
+@import "~bootstrap/scss/root";
+@import "~bootstrap/scss/reboot";
+@import "~bootstrap/scss/type";
+// @import "~bootstrap/scss/images";
+@import "~bootstrap/scss/containers";
+@import "~bootstrap/scss/grid";
+@import "~bootstrap/scss/tables";
+@import "~bootstrap/scss/forms";
+@import "~bootstrap/scss/buttons";
+@import "~bootstrap/scss/transitions";
+@import "~bootstrap/scss/dropdown";
+// @import "~bootstrap/scss/button-group";
+@import "~bootstrap/scss/nav";
+@import "~bootstrap/scss/navbar";
+// @import "~bootstrap/scss/card";
+@import "~bootstrap/scss/accordion";
+// @import "~bootstrap/scss/breadcrumb";
+// @import "~bootstrap/scss/pagination";
+// @import "~bootstrap/scss/badge";
+// @import "~bootstrap/scss/alert";
+// @import "~bootstrap/scss/progress";
+// @import "~bootstrap/scss/list-group";
+@import "~bootstrap/scss/close";
+// @import "~bootstrap/scss/toasts";
+@import "~bootstrap/scss/modal";
+// @import "~bootstrap/scss/tooltip";
+// @import "~bootstrap/scss/popover";
+// @import "~bootstrap/scss/carousel";
+// @import "~bootstrap/scss/spinners";
+@import "~bootstrap/scss/offcanvas";
+// @import "~bootstrap/scss/placeholders";
+
+// Helpers
+@import "~bootstrap/scss/helpers";
+
+// Utilities
+@import "~bootstrap/scss/utilities/api";
+// Bootstrap scss-docs-end import-stack
+
+
+
+* {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+p {
+  @include lineHeight(18, 34);
+  font-size: 1rem;
+}
+
+.h1 {
+  font-size: 28px;
+  font-weight: 700;
+
+  @include min(992) {
+    font-size: size(45);
+  }
+
+  @include min(1200) {
+    font-size: 3rem;
+  }
+
+  @include min(1600) {
+    font-size: size(60);
+  }
+}
+
+.h2 {
+  font-size: 28px;
+  font-weight: 700;
+  @include min(992) {
+    font-size: size(38);
+  }
+
+  @include min(1200) {
+    font-size: size(45);
+  }
+}
+
+.h3 {
+  font-size: 25px;
+  font-weight: 700;
+  @include min(992) {
+    font-size: size(35);
+  }
+
+  @include min(1200) {
+    font-size: size(40);
+    line-height: size(57);
+  }
+}
+
+.h4 {
+  font-size: 24px;
+  font-weight: 700;
+  @include min(992) {
+    font-size: size(30);
+  }
+
+  @include min(1200) {
+    font-size: size(35);
+  }
+}
+
+.h5 {
+  font-size: 22px;
+  font-weight: 700;
+  @include min(992) {
+    font-size: size(30);
+  }
+}
+
+.h6 {
+  font-size: 18px;
+  font-weight: 700;
+  @include min(992) {
+    font-size: size(25);
+  }
+}
+
+.form-control:focus {
+  outline: 0;
+  box-shadow: none;
+}
+
+@include min(1200) {
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 0px;
+    background: #ccc;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: #ebebeb;
+    border-radius: 0px;
+  }
+}
+
+.btn-check:focus+.btn,
+.btn:focus {
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 25%);
+}
+
+img {
+  max-width: 100%;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.btn {
+  outline: none !important;
+  box-shadow: none !important;
+
+  &:focus,
+  &:focus-visible {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+}
+
+a {
+  cursor: pointer;
+  color: $primary;
+
+  &:hover {
+    color: $primary;
+  }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color: rgb(15, 15, 15);
+  -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+input:-webkit-autofill~button,
+input:-webkit-autofill:hover~button,
+input:-webkit-autofill:focus~button {
+  color: #fff;
+}
+

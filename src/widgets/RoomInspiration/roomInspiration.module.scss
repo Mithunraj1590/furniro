@@ -1,0 +1,209 @@
+@import '../../styles/mixins';
+
+.roomInspiration {
+    padding: 60px 0;
+    overflow: hidden;
+    position: relative;
+  
+    @include min(768) {
+        padding: 80px 0;
+    }
+
+    @include min(1200) {
+        padding: 100px 0;
+    }
+
+    .row {
+        min-height: auto;
+        
+        @include min(768) {
+            min-height: 100vh;
+        }
+    }
+}
+
+.content_area {
+    position: relative;
+    width: 100%;
+    z-index: 10;
+    margin-bottom: 40px;
+
+    @include min(768) {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        margin-bottom: 0;
+    }
+}
+
+.content {
+    text-align: center;
+    max-width: 100%;
+
+    @include min(768) {
+        text-align: left;
+        max-width: 80%;
+    }
+}
+
+.slide_area {
+    position: relative;
+    
+    @include min(768) {
+        margin-top: 0;
+    }
+}
+
+.title {
+    @include heading(size(32), 600, 0 0 size(20) 0);
+    color: #2C2C2C;
+    line-height: 1.2;
+
+    @include min(768) {
+        @include heading(size(40), 600, 0 0 size(25) 0);
+    }
+
+    @include min(1200) {
+        @include heading(size(48), 600, 0 0 size(30) 0);
+    }
+}
+
+.description {
+    color: #666666;
+    @include lineHeight(18, 28);
+    margin-bottom: size(30);
+
+    @include min(768) {
+        margin-bottom: size(40);
+    }
+
+    @include min(1200) {
+        margin-bottom: size(50);
+    }
+}
+
+.slider {
+    position: relative;
+    overflow: hidden;
+    height: 470px;
+    z-index: 11;
+    // padding-bottom: 50px;
+
+    @include min(768) {
+        height: 570px;
+    }
+
+    @include min(1200) {
+        height: 582px;
+    }
+
+    :global {
+        .swiper {
+            width: 100%;
+            height: 100%;
+            @include max(991){
+                padding-bottom: 50px;
+            }
+
+            .swiper-slide {
+                transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+                width: 280px;
+                height: 350px;
+                
+                @include min(768) {
+                    width: 320px;
+                    height: 420px;
+                }
+                
+                @include min(1200) {
+                    width: 372px;
+                    height: 486px;
+                }
+                
+                &-active{
+                    width: 320px;
+                    height: 400px;
+                    
+                    @include min(768) {
+                        width: 360px;
+                        height: 500px;
+                    }
+                    
+                    @include min(1200) {
+                        width: 404px;
+                        height: 582px;
+                    }
+                }
+            }
+
+            .swiper-button-next,
+            .swiper-button-prev {
+                color: var(--color-primary);
+                background: white;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+                
+                @include min(768) {
+                    width: 50px;
+                    height: 50px;
+                }
+                
+                &::after {
+                    font-size: 14px;
+                    font-weight: bold;
+                    
+                    @include min(768) {
+                        font-size: 18px;
+                    }
+                }
+
+                &:hover {
+                    background: var(--color-primary);
+                    color: white;
+                }
+            }
+
+            .swiper-pagination {
+                bottom: 20px;
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 10;
+                
+                @include min(992) {
+                    display: none; // Hide pagination on desktop (992px and above)
+                }
+                
+                .swiper-pagination-bullet {
+                    width: 11px;
+                    height: 11px;
+                    background-color: #D8D8D8;
+                    border: 2px solid #D8D8D8;
+                    opacity: 1;
+                    position: relative;
+                    margin: 0 4px;
+                   
+                    
+                    &-active {
+                        background: var(--color-primary);
+                        border-color: var(--color-primary);
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Dark mode support
+[data-theme='dark'] {
+    .roomInspiration {
+        background: var(--color-bg);
+    }
+
+    .description {
+        color: rgba(255, 255, 255, 0.6);
+    }
+}

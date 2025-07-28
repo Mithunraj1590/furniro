@@ -1,0 +1,281 @@
+@import '../../styles/mixins';
+
+.wishlistPage {
+  min-height: 100vh;
+  background: var(--color-bg);
+}
+
+.emptyWishlist {
+  text-align: center;
+  padding: 4rem 0;
+  
+  @include min(768) {
+    padding: 6rem 0;
+  }
+}
+
+.emptyWishlistIcon {
+  font-size: 4rem;
+  color: var(--color-primary);
+  margin-bottom: 2rem;
+  
+  @include min(768) {
+    font-size: 5rem;
+  }
+}
+
+.emptyWishlist h2 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 1rem;
+  
+  @include min(768) {
+    font-size: 2rem;
+  }
+}
+
+.emptyWishlist p {
+  font-size: 1.1rem;
+  color: rgba(0, 0, 0, 0.7);
+  margin-bottom: 2rem;
+  
+  @include min(768) {
+    font-size: 1.2rem;
+  }
+}
+
+.wishlistHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+  
+  h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin: 0 0 0.5rem 0;
+    
+    @include min(768) {
+      font-size: 2.5rem;
+    }
+  }
+  
+  p {
+    font-size: 1.1rem;
+    color: rgba(0, 0, 0, 0.7);
+    margin: 0;
+    
+    @include min(768) {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+.wishlistGrid {
+  display: grid;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  
+  @include min(576) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  @include min(768) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+  }
+  
+  @include min(1200) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.wishlistItem {
+  background: white;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.itemImage {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+  
+  @include min(768) {
+    height: 250px;
+  }
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  
+  .removeBtn {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #dc3545;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    
+    &:hover {
+      background: #dc3545;
+      color: white;
+      transform: scale(1.1);
+    }
+  }
+}
+
+.wishlistItem:hover .itemImage img {
+  transform: scale(1.05);
+}
+
+.itemDetails {
+  padding: 1.5rem;
+  
+  @include min(768) {
+    padding: 2rem;
+  }
+}
+
+.itemName {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0 0 0.5rem 0;
+  line-height: 1.3;
+  
+  @include min(768) {
+    font-size: 1.2rem;
+  }
+}
+
+.itemDescription {
+  font-size: 0.9rem;
+  color: rgba(0, 0, 0, 0.7);
+  margin: 0 0 1rem 0;
+  line-height: 1.5;
+  
+  @include min(768) {
+    font-size: 1rem;
+  }
+}
+
+.itemPrice {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  
+  @include min(768) {
+    font-size: 1.2rem;
+  }
+}
+
+.itemActions {
+  padding: 0 1.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  
+  @include min(768) {
+    padding: 0 2rem 2rem;
+    gap: 1rem;
+  }
+}
+
+.wishlistFooter {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+// Dark mode support
+[data-theme='dark'] {
+  .emptyWishlist p {
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  .wishlistHeader p {
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  .wishlistItem {
+    background: var(--color-bg);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    
+    &:hover {
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    }
+  }
+  
+  .itemDescription {
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  .wishlistFooter {
+    border-top-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+// Responsive improvements
+@include max(767) {
+  .wishlistHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    
+    h1 {
+      font-size: 1.75rem;
+    }
+    
+    p {
+      font-size: 1rem;
+    }
+  }
+  
+  .wishlistGrid {
+    gap: 1.5rem;
+  }
+  
+  .itemDetails {
+    padding: 1.25rem;
+  }
+  
+  .itemName {
+    font-size: 1rem;
+  }
+  
+  .itemDescription {
+    font-size: 0.85rem;
+  }
+  
+  .itemPrice {
+    font-size: 1rem;
+  }
+  
+  .itemActions {
+    padding: 0 1.25rem 1.25rem;
+    gap: 0.625rem;
+  }
+} 

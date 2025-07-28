@@ -1,0 +1,165 @@
+@import '../../styles/mixins';
+
+.features {
+  background: var(--color-bg);
+  padding: 3rem 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  
+  @include min(768) {
+    padding: 4rem 0;
+  }
+  
+  @include min(1200) {
+    padding: 5rem 0;
+  }
+}
+
+.featuresGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  
+  @include min(576) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+  
+  @include min(768) {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem;
+  }
+}
+
+.featureItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1.5rem;
+  transition: transform 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+  }
+  
+  @include min(768) {
+    padding: 2rem;
+  }
+}
+
+.featureIcon {
+  width: 60px;
+  height: 60px;
+  border: 2px solid var(--color-text);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+  
+  i {
+    font-size: 1.5rem;
+    color: var(--color-text);
+    transition: color 0.3s ease;
+  }
+  
+  @include min(768) {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 2rem;
+    
+    i {
+      font-size: 1.75rem;
+    }
+  }
+}
+
+.featureItem:hover .featureIcon {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  
+  i {
+    color: white;
+  }
+}
+
+.featureContent {
+  flex: 1;
+}
+
+.featureTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0 0 0.5rem 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  
+  @include min(768) {
+    font-size: 1.2rem;
+  }
+}
+
+.featureDescription {
+  font-size: 0.9rem;
+  color: rgba(0, 0, 0, 0.7);
+  margin: 0;
+  line-height: 1.4;
+  
+  @include min(768) {
+    font-size: 1rem;
+  }
+}
+
+// Dark mode support
+[data-theme='dark'] {
+  .features {
+    border-top-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .featureIcon {
+    border-color: var(--color-text);
+    
+    i {
+      color: var(--color-text);
+    }
+  }
+  
+  .featureDescription {
+    color: rgba(255, 255, 255, 0.7);
+  }
+}
+
+// Responsive improvements
+@include max(767) {
+  .features {
+    padding: 2.5rem 0;
+  }
+  
+  .featuresGrid {
+    gap: 2rem;
+  }
+  
+  .featureItem {
+    padding: 1.25rem;
+  }
+  
+  .featureIcon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 1.25rem;
+    
+    i {
+      font-size: 1.25rem;
+    }
+  }
+  
+  .featureTitle {
+    font-size: 1rem;
+  }
+  
+  .featureDescription {
+    font-size: 0.85rem;
+  }
+} 

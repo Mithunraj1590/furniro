@@ -1,0 +1,123 @@
+@import '../../styles/mixins';
+
+.breadcrumb {
+  background: #f8f6f3;
+  padding: 1rem 0;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.breadcrumbList {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.breadcrumbItem {
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumbLink {
+  color: #999999;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 400;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  &:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+.breadcrumbCurrent {
+  color: var(--color-primary);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.breadcrumbSeparator {
+  display: flex;
+  align-items: center;
+  color: #000000;
+  font-size: 0.8rem;
+  margin: 0 0.25rem;
+
+  i {
+    font-size: 0.7rem;
+  }
+}
+
+.verticalLine {
+  width: 1px;
+  height: 16px;
+  background: #999999;
+  margin: 0 0.5rem;
+}
+
+// Responsive adjustments
+@include max(576) {
+  .breadcrumb {
+    padding: 0.75rem 0;
+  }
+
+  .breadcrumbList {
+    gap: 0.25rem;
+  }
+
+  .breadcrumbLink,
+  .breadcrumbCurrent {
+    font-size: 0.8rem;
+  }
+
+  .breadcrumbSeparator {
+    margin: 0 0.125rem;
+
+    i {
+      font-size: 0.6rem;
+    }
+  }
+
+  .verticalLine {
+    height: 14px;
+    margin: 0 0.25rem;
+  }
+}
+
+// Dark mode support
+[data-theme='dark'] {
+  .breadcrumb {
+    background: var(--color-bg-secondary);
+    border-color: var(--color-border);
+  }
+
+  .breadcrumbLink {
+    color: #999999;
+
+    &:hover {
+      color: var(--color-primary);
+    }
+  }
+
+  .breadcrumbCurrent {
+    color: var(--color-text);
+  }
+
+  .breadcrumbSeparator {
+    color: var(--color-text);
+  }
+
+  .verticalLine {
+    background: #666666;
+  }
+} 

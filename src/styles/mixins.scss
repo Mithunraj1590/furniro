@@ -1,0 +1,69 @@
+//colors
+$primary: #B88E2F;
+
+//fonts
+$primary-font: var(--bs-body-font-family);
+$base-size: 18;
+
+@function size($target, $context: $base-size) {
+  @return ($target / $context) * 1rem;
+}
+
+@mixin min-max($resMin, $resMax) {
+  @media (min-width: #{$resMin}px) and (max-width: #{$resMax}px) {
+    @content;
+  }
+}
+
+@mixin max($res) {
+  @media (max-width: #{$res}px) {
+    @content;
+  }
+}
+
+@mixin min($res) {
+  @media (min-width: #{$res}px) {
+    @content;
+  }
+}
+
+@mixin lineHeight($font, $line) {
+  line-height: calc($line/$font);
+}
+
+@mixin lineClamp($lines) {
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@mixin aspectRatio($w, $h) {
+  padding-bottom: calc(($h / $w) * 100%);
+  position: relative;
+
+  &>img,
+  &>picture {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+// Heading mixins
+@mixin heading($size, $weight: 700, $margin: 0 0 1rem 0) {
+  font-family: 'Poppins', sans-serif;
+  font-weight: $weight;
+  font-size: $size;
+  margin: $margin;
+  color: var(--color-text);
+  line-height: 1.2;
+} 

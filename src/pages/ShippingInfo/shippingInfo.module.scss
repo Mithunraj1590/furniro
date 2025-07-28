@@ -1,0 +1,233 @@
+@import '../../styles/mixins';
+
+.shippingInfoPage {
+  background: var(--color-bg);
+  color: var(--color-text);
+  min-height: 100vh;
+}
+
+.heroSection {
+  background: linear-gradient(135deg, var(--color-primary) 0%, #d4af37 100%);
+  color: white;
+  padding: 4rem 0;
+  text-align: center;
+  
+  @include min(768) {
+    padding: 6rem 0;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    
+    @include min(768) {
+      font-size: 3rem;
+    }
+  }
+  
+  p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+    
+    @include min(768) {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+.contentSection {
+  padding: 4rem 0;
+  
+  @include min(768) {
+    padding: 6rem 0;
+  }
+}
+
+.shippingGrid {
+  display: grid;
+  gap: 2rem;
+  margin-bottom: 4rem;
+  
+  @include min(768) {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+  }
+}
+
+.shippingCard {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  
+  i {
+    font-size: 2rem;
+    color: var(--color-primary);
+  }
+  
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+    color: var(--color-text);
+  }
+}
+
+.cardContent {
+  p {
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+    line-height: 1.6;
+    
+    strong {
+      color: var(--color-text);
+    }
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0 0;
+    
+    li {
+      padding: 0.5rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+      font-size: 0.95rem;
+      
+      &::before {
+        content: '✓';
+        position: absolute;
+        left: 0;
+        color: var(--color-primary);
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+.policiesSection {
+  margin-bottom: 4rem;
+  
+  h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: var(--color-text);
+  }
+}
+
+.policyGrid {
+  display: grid;
+  gap: 2rem;
+  
+  @include min(768) {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2.5rem;
+  }
+}
+
+.policyItem {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  
+  h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--color-text);
+  }
+  
+  p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: rgba(0, 0, 0, 0.7);
+    margin: 0;
+  }
+}
+
+.faqSection {
+  h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: var(--color-text);
+  }
+}
+
+.faqList {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faqItem {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  margin-bottom: 1.5rem;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+  
+  h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--color-text);
+  }
+  
+  p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: rgba(0, 0, 0, 0.7);
+    margin: 0;
+  }
+}
+
+// Dark mode support
+[data-theme='dark'] {
+  .shippingCard,
+  .policyItem,
+  .faqItem {
+    background: #2a2a2a;
+    color: var(--color-text);
+  }
+  
+  .cardHeader h3,
+  .policyItem h4,
+  .faqItem h4 {
+    color: var(--color-text);
+  }
+  
+  .cardContent p strong,
+  .policyItem p,
+  .faqItem p {
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  .cardContent ul li {
+    color: rgba(255, 255, 255, 0.8);
+  }
+} 

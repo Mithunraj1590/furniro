@@ -1,0 +1,608 @@
+@import '../../styles/mixins';
+
+.filterTab {
+    background: var(--color-bg);
+    border-bottom: 1px solid #e5e5e5;
+    padding: 1rem 0;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+
+    @include min(768) {
+        padding: 1.5rem 0;
+    }
+
+    @include min(1200) {
+        padding: 2rem 0;
+    }
+}
+
+.filterContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+
+    @include max(767) {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+    }
+}
+
+// Desktop Results Count (only visible on desktop)
+.desktopResultsCount {
+    display: none;
+    color: #666666;
+    font-size: 0.9rem;
+    white-space: nowrap;
+
+    @include min(768) {
+        display: block;
+    }
+}
+
+.filterSection {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+
+    @include max(767) {
+        justify-content: space-between;
+        width: 100%;
+        flex-direction: row;
+    }
+
+    @include max(480) {
+        flex-direction: row;
+        align-items: center;
+        gap: 0.75rem;
+    }
+}
+
+.filterButton {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: none;
+    border: none;
+    color: var(--color-text);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background: rgba(0, 0, 0, 0.05);
+        color: var(--color-primary);
+    }
+
+    i {
+        font-size: 1.1rem;
+    }
+
+    @include max(767) {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
+        width: 100%;
+        max-width: max-content;
+        justify-content: center;
+
+        i {
+            font-size: 1rem;
+        }
+    }
+}
+
+.divider {
+    width: 1px;
+    height: 24px;
+    background: #e5e5e5;
+    margin: 0 0.5rem;
+
+    @include max(767) {
+        display: none;
+    }
+}
+
+.viewToggles {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    background: #f8f8f8;
+    border-radius: 6px;
+    padding: 0.25rem;
+
+    @include max(767) {
+        display: none;
+    }
+}
+
+.viewToggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: none;
+    border: none;
+    border-radius: 4px;
+    color: #666666;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background: rgba(0, 0, 0, 0.05);
+        color: var(--color-primary);
+    }
+
+    &.active {
+        background: white;
+        color: var(--color-primary);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    i {
+        font-size: 1.1rem;
+    }
+
+    @include max(767) {
+        width: 32px;
+        height: 32px;
+
+        i {
+            font-size: 1rem;
+        }
+    }
+}
+
+// Mobile Sort Button (only visible on mobile)
+.mobileSortButton {
+    display: none;
+    align-items: center;
+    gap: 0.5rem;
+    background: none;
+    border: none;
+    color: var(--color-text);
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    width: 100%;
+    max-width: max-content;
+    justify-content: center;
+
+    &:hover {
+        background: rgba(0, 0, 0, 0.05);
+        color: var(--color-primary);
+    }
+
+    i {
+        font-size: 1rem;
+    }
+
+    @include max(767) {
+        display: flex;
+    }
+}
+
+.resultsCount {
+    color: #666666;
+    font-size: 0.9rem;
+    white-space: nowrap;
+
+    @include max(767) {
+        display: none;
+    }
+}
+
+// Mobile Results Count (only visible on mobile)
+.mobileResultsCount {
+    display: none;
+    color: #666666;
+    font-size: 0.8rem;
+    text-align: center;
+    padding-top: 0.5rem;
+    border-top: 1px solid #e5e5e5;
+
+    @include max(767) {
+        display: block;
+    }
+}
+
+.controlsSection {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+
+    @include max(767) {
+        display: none;
+    }
+}
+
+.controlGroup {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    @include max(480) {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.5rem;
+    }
+}
+
+.controlLabel {
+    color: #666666;
+    font-size: 0.9rem;
+    white-space: nowrap;
+
+    @include max(767) {
+        font-size: 0.8rem;
+    }
+
+    @include max(480) {
+        text-align: center;
+    }
+}
+
+.dropdownContainer {
+    position: relative;
+    min-width: 170px;
+
+    @include max(767) {
+        min-width: 140px;
+    }
+
+    @include max(480) {
+        min-width: 100%;
+    }
+}
+
+.dropdownButton {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: white;
+    border: 1px solid #e5e5e5;
+    border-radius: 6px;
+    padding: 0.5rem 0.75rem;
+    color: var(--color-text);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 80px;
+    justify-content: space-between;
+    width: 100%;
+
+    &:hover {
+        border-color: var(--color-primary);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    i {
+        font-size: 0.8rem;
+        transition: transform 0.3s ease;
+    }
+
+    @include max(767) {
+        padding: 0.4rem 0.6rem;
+        font-size: 0.8rem;
+        min-width: 70px;
+
+        i {
+            font-size: 0.7rem;
+        }
+    }
+
+    @include max(480) {
+        min-width: 100%;
+        justify-content: center;
+    }
+}
+
+.dropdownMenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    border: 1px solid #e5e5e5;
+    border-radius: 6px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    margin-top: 0.25rem;
+    overflow: hidden;
+    animation: dropdownSlide 0.2s ease-out;
+
+    @include max(480) {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        max-width: 300px;
+        max-height: 80vh;
+        overflow-y: auto;
+    }
+}
+
+.dropdownItem {
+    display: block;
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 0.75rem 1rem;
+    text-align: left;
+    color: var(--color-text);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background: #f8f8f8;
+        color: var(--color-primary);
+    }
+
+    &.active {
+        background: var(--color-primary);
+        color: white;
+    }
+
+    @include max(767) {
+        padding: 0.6rem 0.8rem;
+        font-size: 0.8rem;
+    }
+}
+
+// Mobile Modal Styles
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    display: none;
+
+    @include max(767) {
+        display: block;
+    }
+}
+
+.mobileModal {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--color-bg);
+    border-radius: 20px 20px 0 0;
+    padding: 1.5rem;
+    z-index: 10000;
+    max-height: 80vh;
+    overflow-y: auto;
+    display: none;
+
+    @include max(767) {
+        display: block;
+    }
+}
+
+.modalHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e5e5e5;
+
+    h3 {
+        margin: 0;
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--color-text);
+    }
+}
+
+.closeButton {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #666666;
+    cursor: pointer;
+    padding: 0.25rem;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background: rgba(0, 0, 0, 0.05);
+        color: var(--color-text);
+    }
+}
+
+.modalContent {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.modalSection {
+    h4 {
+        margin: 0 0 1rem 0;
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--color-text);
+    }
+}
+
+.modalOptions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.modalOption {
+    display: block;
+    width: 100%;
+    background: none;
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: left;
+    color: var(--color-text);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+        border-color: var(--color-primary);
+        background: rgba(184, 142, 47, 0.05);
+    }
+
+    &.active {
+        background: var(--color-primary);
+        border-color: var(--color-primary);
+        color: white;
+    }
+}
+
+@keyframes dropdownSlide {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+// Dark mode support
+[data-theme='dark'] {
+    .filterTab {
+        background: var(--color-bg);
+        border-color: #333333;
+    }
+
+    .filterButton {
+        color: var(--color-text);
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--color-primary);
+        }
+    }
+
+    .divider {
+        background: #333333;
+    }
+
+    .viewToggles {
+        background: #2a2a2a;
+    }
+
+    .viewToggle {
+        color: rgba(255, 255, 255, 0.7);
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--color-primary);
+        }
+
+        &.active {
+            background: #333333;
+            color: var(--color-primary);
+        }
+    }
+
+    .mobileSortButton {
+        color: var(--color-text);
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--color-primary);
+        }
+    }
+
+    .resultsCount,
+    .mobileResultsCount {
+        color: rgba(255, 255, 255, 0.7);
+    }
+
+    .controlLabel {
+        color: rgba(255, 255, 255, 0.7);
+    }
+
+    .dropdownButton {
+        background: #2a2a2a;
+        border-color: #333333;
+        color: var(--color-text);
+
+        &:hover {
+            border-color: var(--color-primary);
+        }
+    }
+
+    .dropdownMenu {
+        background: #2a2a2a;
+        border-color: #333333;
+    }
+
+    .dropdownItem {
+        color: var(--color-text);
+
+        &:hover {
+            background: #333333;
+            color: var(--color-primary);
+        }
+
+        &.active {
+            background: var(--color-primary);
+            color: white;
+        }
+    }
+
+    .mobileModal {
+        background: var(--color-bg);
+    }
+
+    .modalHeader {
+        border-color: #333333;
+    }
+
+    .closeButton {
+        color: rgba(255, 255, 255, 0.7);
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--color-text);
+        }
+    }
+
+    .modalOption {
+        border-color: #333333;
+        color: var(--color-text);
+
+        &:hover {
+            border-color: var(--color-primary);
+            background: rgba(184, 142, 47, 0.1);
+        }
+
+        &.active {
+            background: var(--color-primary);
+            border-color: var(--color-primary);
+            color: white;
+        }
+    }
+} 
