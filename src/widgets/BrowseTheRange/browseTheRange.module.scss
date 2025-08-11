@@ -84,8 +84,8 @@
 }
 
 // Custom Swiper Navigation
-.swiperButtonPrev,
-.swiperButtonNext {
+:global(.swiper-button-prev),
+:global(.swiper-button-next) {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -145,7 +145,7 @@
   }
 }
 
-.swiperButtonPrev {
+:global(.swiper-button-prev) {
   left: -20px;
 
   @include min(768) {
@@ -153,7 +153,7 @@
   }
 }
 
-.swiperButtonNext {
+:global(.swiper-button-next) {
   right: -20px;
 
   @include min(768) {
@@ -162,7 +162,7 @@
 }
 
 // Custom Swiper Pagination
-.swiperPagination {
+:global(.swiper-pagination) {
   position: relative;
   margin-top: 2rem;
   display: flex;
@@ -195,8 +195,8 @@
     color: rgba(255, 255, 255, 0.7);
   }
 
-  .swiperButtonPrev,
-  .swiperButtonNext {
+  :global(.swiper-button-prev),
+  :global(.swiper-button-next) {
     background: white;
     color: var(--color-primary);
 
@@ -206,7 +206,7 @@
     }
   }
 
-  .swiperPagination .swiper-pagination-bullet {
+  :global(.swiper-pagination) .swiper-pagination-bullet {
     background: rgba(255, 255, 255, 0.3);
 
     &:hover,

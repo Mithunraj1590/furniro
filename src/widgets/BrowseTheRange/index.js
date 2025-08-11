@@ -120,12 +120,12 @@ const BrowseTheRange = () => {
             spaceBetween={30}
             slidesPerView={1}
             navigation={{
-              nextEl: `.${styles.swiperButtonNext}`,
-              prevEl: `.${styles.swiperButtonPrev}`,
+              nextEl: '.swiper-button-next',
+              prevEl: '.swiper-button-prev',
             }}
             pagination={{
               clickable: true,
-              el: `.${styles.swiperPagination}`,
+              el: '.swiper-pagination',
             }}
             autoplay={{
               delay: 5000,
@@ -151,12 +151,15 @@ const BrowseTheRange = () => {
           </Swiper>
 
           {/* Custom Navigation */}
-          <div className={`${styles.swiperButtonPrev} swiper-button-prev`}>
+          <div className="swiper-button-prev">
             {/* <i className="bi bi-chevron-left"></i> */}
           </div>
-          <div className={`${styles.swiperButtonNext} swiper-button-next`}>
+          <div className="swiper-button-next">
             {/* <i className="bi bi-chevron-right"></i> */}
           </div>
+
+          {/* Custom Pagination */}
+          <div className="swiper-pagination"></div>
 
         </motion.div>
       </div>
